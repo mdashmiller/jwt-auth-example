@@ -1,11 +1,8 @@
 import React from 'react'
 import { useAuthorizedQuery } from '../generated/graphql'
 
-interface Props {
-
-}
-
-export const Authorized: React.FC<Props> = () => {
+export const Authorized: React.FC = () => {
+  // const { data, loading,  error } = useAuthorizedQuery({ fetchPolicy: "network-only" })
   const { data, loading,  error } = useAuthorizedQuery()
 
   if (loading) return <div>Loading...</div>
