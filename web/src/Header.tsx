@@ -32,14 +32,17 @@ export const Header: React.FC = () => {
         <Link to='/authorized'>Authorized</Link>
       </div>
       <div>
-        <button onClick={async () => {
-            await logout()
-            setAccessToken('')
-            await client!.resetStore()
-          }}
-        >
-          Logout
-        </button>
+        {!loading && data && data.me ? (
+          <button 
+            onClick={async () => {
+              await logout()
+              setAccessToken('')
+              await client!.resetStore()
+            }}
+          >
+            Logout
+          </button>
+        ) : null}
       </div>
       {body}
     </header>
